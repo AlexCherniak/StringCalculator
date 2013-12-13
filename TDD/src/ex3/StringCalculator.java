@@ -15,12 +15,12 @@ public class StringCalculator {
             }
             return sum;
     }
-    
+   
     public int Add(String string)
     {
             if(string.isEmpty())
                     return 0;
-            String[] numbers = string.split(",");
+            String[] numbers = string.split("[,\n]");
              if(numbers.length == 1)
                      return stToInt(string);
             return sumNumbers(numbers);
