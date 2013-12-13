@@ -9,7 +9,7 @@ public class CalculatorTester {
         @Test
         public void testEmptyString()
         {
-                  StringCalculator calc = new StringCalculator();
+          StringCalculator calc = new StringCalculator();
           int result = calc.Add("");
           assertEquals(result, 0);
         }
@@ -51,6 +51,24 @@ public class CalculatorTester {
              StringCalculator calc = new StringCalculator();
              int result = calc.Add("//;\n5;5,5\n5");
              assertEquals(result,20);
+     }
+         
+     @Test
+     public void testWithNegativeNumbers()
+     {
+             StringCalculator calc = new StringCalculator();
+            
+             try
+             {
+                     int result = calc.Add("-5,-5");
+                     assertEquals(result, -10);
+             }
+            
+           
+             catch(Exception e)
+             {
+                     System.out.println(e);
+             }
      }
 
 }
