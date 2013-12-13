@@ -6,10 +6,8 @@ import org.junit.Test;
 
 public class StringCalculator {
 	
-	@Test
-	public void test() {
-		fail("Not yet implemented");
+	int addEmptyStringReturnZero(String numbers)
+	{
+		return -1;
 	}
-	
-
 }
