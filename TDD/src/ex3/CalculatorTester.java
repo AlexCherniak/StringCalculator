@@ -46,5 +46,12 @@ public class CalculatorTester {
                 int result= calculator.Add("5,5\n5");
                 assertEquals(15,result);
         }
+        
+        @Test
+        public void SupportDifferentDelimiters () 
+        {
+                int result= calculator.Add("“//;\n5;5");
+                assertEquals(10,result);
+        }
 
 }
