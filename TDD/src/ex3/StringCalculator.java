@@ -1,13 +1,12 @@
 package ex3;
 
-
-import static org.junit.Assert.*;
-import org.junit.Test;
+//GREEN Light
 
 public class StringCalculator {
 	
-	int addEmptyStringReturnZero(String numbers)
-	{
-		return -1;
-	}
+	int Add(String numbers)
+    {
+   
+    return 0;
+    }
 }
