@@ -1,27 +1,35 @@
 package ex3;
 
-public class StringCalculator {
-        private int stToInt(String string)
-        {
-                return Integer.parseInt(string);
-        }      
-        private int sumNumbers(String[] numbers)
-        {
-                int sum=0;
-                for(int i=0;i<numbers.length;i++)
-                {
-                        sum+=stToInt(numbers[i]);
-                }
-                return sum;
-        }     
-        public int Add(String string)
-        {
-                if(string.isEmpty())
+public class StringCalculator
+{
+        private int result=0;
+        private String numbers[];
+        
+        int Add(String input)
+    {
+                 if(input.isEmpty())
                         return 0;
-                String[] numbers = string.split("[,\n]");
-                 if(numbers.length == 1)
-                         return stToInt(string);
-                return sumNumbers(numbers);
-        }
+                 
+                 if(input.charAt(0) == '/' && input.charAt(1) == '/' && input.charAt(3) == '\n')
+                 {
+             char delimiter = input.charAt(2);
+             numbers = input.split("[//"+delimiter+",\n]");
+         }
+         else
+         {
+             numbers= input.split("[,\n]");
+         }
+         
 
+                 if(numbers.length == 1)
+              return Integer.parseInt(input);
+                 
+                 for(int i=0; i<numbers.length; i++)
+                 {
+                           if(!numbers[i].equals(""))
+                                    result += Integer.parseInt(numbers[i]);
+                 }
+                
+                 return result;
+    } 
 }

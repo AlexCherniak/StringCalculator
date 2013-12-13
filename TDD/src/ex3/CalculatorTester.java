@@ -6,52 +6,51 @@ import org.junit.Test;
 
 public class CalculatorTester {
 
-        StringCalculator calculator = new StringCalculator();
         @Test
-        public void test() {
-                //fail("Not yet implemented");
+        public void testEmptyString()
+        {
+                  StringCalculator calc = new StringCalculator();
+          int result = calc.Add("");
+          assertEquals(result, 0);
         }
         
         @Test
-        public void addingEmptyStringReturns0() 
-        {
-                int result= calculator.Add("");
-                assertEquals(0,result);
+    public void testOneNumber()
+    {
+           StringCalculator calc = new StringCalculator();
+           int result = calc.Add("7");
+           assertEquals(result, 7);
         }
+        @Test
+        public void testTwoNumbers()
+        {
+           StringCalculator calc = new StringCalculator();
+           int result = calc.Add("5,5");
+           assertEquals(result, 10);
+    }
         
         @Test
-        public void JustOneNumber() 
+    public void testNoLimitOnNumbers()
         {
-                int result= calculator.Add("7");
-                assertEquals(7,result);
-        }
+            StringCalculator calc = new StringCalculator();
+            int result = calc.Add("5,5,5");
+            assertEquals(result, 15);
+    }
         
         @Test
-        public void addTwoNumbers() 
+    public void testLinesInsteadOfCommas()
         {
-                int result= calculator.Add("5,5");
-                assertEquals(10,result);
-        }
+            StringCalculator calc = new StringCalculator();
+            int result = calc.Add("5,5\n5");
+            assertEquals(result, 15);
+    }
         
-        @Test
-        public void addNoLimitNumbers() 
-        {
-                int result= calculator.Add("5,5,5");
-                assertEquals(15,result);
-        }
-
-        @Test
-        public void newLinesBetweenNumbers() 
-        {
-                int result= calculator.Add("5,5\n5");
-                assertEquals(15,result);
-        }
-        
-        @Test
-        public void SupportDifferentDelimiters () 
-        {
-                int result= calculator.Add("“//;\n5;5");
-                assertEquals(10,result);
-        }
+         @Test
+     public void testSupportDifferentDelimiters()
+         {
+             StringCalculator calc = new StringCalculator();
+             int result = calc.Add("//;\n5;5,5\n5");
+             assertEquals(result,20);
+     }
 
 }
