@@ -2,24 +2,22 @@ package ex3;
 
 
 public class StringCalculator {
-	int addEmptyStringReturnZero(String numbers)
-	{
-		return 0;
-	}	
-	int Add(String input)
-	{
-		{
-			String[] numbers = input.split(",");
-			if((input)=="")
-				return 0;
-			else if(input.length() == 1)
-			 {
-				 return  Integer.parseInt(numbers[0]);
-			 }
-			else
-			{
-				return Integer.parseInt(numbers[0])+Integer.parseInt(numbers[0]);
-			}		
-		}
-	}
+    private int stToInt(String string)
+    {
+            return Integer.parseInt(string);
+    }  
+    public int Add(String string)
+    {
+            if(string.isEmpty())
+                    return 0;
+            String[] numbers = string.split(",");
+             if(numbers.length == 1)
+                     return stToInt(string);
+            int sum=0;
+            for(int i=0;i<numbers.length;i++)
+            {
+                    sum+=stToInt(numbers[i]);
+            }
+            return sum;
+    }
 }
